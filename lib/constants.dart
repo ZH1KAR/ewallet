@@ -10,3 +10,7 @@ TextStyle kRoboto = GoogleFonts.roboto(color: Colors.white, fontSize: 14);
 TextStyle kRobotoTextField =
     GoogleFonts.roboto(color: Colors.black26, fontSize: 10);
 Color kYellow = const Color(0xFFF7AA00);
+TextStyle kRobotoMedium =
+    GoogleFonts.roboto(color: Colors.white54, fontSize: 6);
+TextStyle kRobotoBlackBold =
+    GoogleFonts.roboto(fontSize: 12, fontWeight: FontWeight.bold);
