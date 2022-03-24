@@ -92,7 +92,7 @@ class LoginWidget extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const HomePage()));
@@ -102,6 +102,7 @@ class LoginWidget extends StatelessWidget {
                   style: kRoboto,
                 ),
                 style: ElevatedButton.styleFrom(
+                    primary: kYellow,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(35.0),
                     ),
