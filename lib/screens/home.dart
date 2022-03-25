@@ -1,5 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ewallet/constants.dart';
+import 'package:ewallet/screens/chart_screen.dart';
+import 'package:ewallet/screens/home_screen.dart';
 import 'package:ewallet/widgets/credit_card.dart';
 import 'package:ewallet/widgets/home_prop_cards.dart';
 import 'package:ewallet/widgets/monthly_log.dart';
@@ -15,6 +17,26 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final time = DateTime.now();
+  List _listPage = [];
+  int _currentIndex = 0;
+  Widget? _currentPage;
+  @override
+  void initState() {
+    _listPage
+      ..add(HomeScreen())
+      ..add(ChartStatistics());
+    _currentPage = HomeScreen();
+    // getCurrentPage(currentIndex);
+    super.initState();
+  }
+
+  void getCurrentPage(int selectedIndex) {
+    setState(() {
+      _currentIndex = selectedIndex;
+      _currentPage = _listPage[selectedIndex];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -31,48 +53,10 @@ class _HomePageState extends State<HomePage> {
             )
           ],
           backgroundColor: klightBlue),
-      body: Container(
-        width: size.width,
-        height: size.height,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [klightBlue, klightPurpule],
-              tileMode: TileMode.clamp),
-        ),
-        child: Column(
-          children: [
-            CreditCard(),
-            Row(
-              children: [
-                HomeCards(icon: Icons.import_contacts),
-                HomeCards(icon: Icons.compare_arrows),
-                HomeCards(icon: Icons.add_circle_outline),
-                HomeCards(icon: Icons.shopping_basket),
-              ],
-            ),
-            SizedBox(
-              height: size.height * 0.2725,
-              child: Card(
-                color: Colors.white,
-                child: ListView(
-                  padding: EdgeInsets.all(10.0),
-                  children: [
-                    AutoSizeText("This Month", style: kRobotoBlackBold),
-                    MonthlyLog(
-                        subtitleText: time.toString(),
-                        titleText: 'WithdrawPay',
-                        paymentNumber: "\$1500"),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: _currentPage,
       bottomNavigationBar: BottomAppBar(
         child: BottomNavigationBar(
+          currentIndex: _currentIndex,
           items: [
             BottomNavigationBarItem(
                 icon: Icon(
@@ -84,6 +68,16 @@ class _HomePageState extends State<HomePage> {
                   Icons.home_filled,
                   color: klightBlue,
                 )),
+            // BottomNavigationBarItem(
+            //     icon: Icon(
+            //       Icons.notifications_active_outlined,
+            //       color: klightBlue,
+            //     ),
+            //     label: "Notifications",
+            //     activeIcon: Icon(
+            //       Icons.notifications_active,
+            //       color: klightBlue,
+            //     )),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.insert_chart_outlined,
@@ -94,7 +88,19 @@ class _HomePageState extends State<HomePage> {
                   Icons.insert_chart,
                   color: klightBlue,
                 )),
+            // BottomNavigationBarItem(
+            //   icon: Icon(
+            //     Icons.account_circle_outlined,
+            //     color: klightBlue,
+            //   ),
+            //   label: "Profile",
+            //   activeIcon: Icon(
+            //     Icons.account_circle,
+            //     color: klightBlue,
+            //   ),
+            // ),
           ],
+          onTap: (value) => getCurrentPage(value),
         ),
       ),
     );
