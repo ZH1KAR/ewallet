@@ -4,6 +4,7 @@ import 'package:ewallet/screens/chart_screen.dart';
 import 'package:ewallet/screens/home_screen.dart';
 import 'package:ewallet/screens/profile_screen.dart';
 import 'package:ewallet/widgets/credit_card.dart';
+import 'package:ewallet/widgets/drawer.dart';
 import 'package:ewallet/widgets/home_prop_cards.dart';
 import 'package:ewallet/widgets/monthly_log.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +44,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: DrawerWidget(),
       appBar: AppBar(
           elevation: 0,
           shadowColor: Colors.transparent,

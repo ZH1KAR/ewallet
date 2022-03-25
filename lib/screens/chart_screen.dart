@@ -1,4 +1,5 @@
 import 'package:ewallet/constants.dart';
+import 'package:ewallet/widgets/bar_chart.dart';
 import 'package:ewallet/widgets/line_chart_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -25,16 +26,26 @@ class _ChartStatisticsState extends State<ChartStatistics> {
               colors: [klightBlue, klightPurpule],
               tileMode: TileMode.clamp),
         ),
-        child: ListView(children: [
-          SizedBox(
-            width: size.width,
-            height: size.height * 0.4,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 50.0),
-              child: LineChartWidget(),
+        child: ListView(
+          children: [
+            SizedBox(
+              width: size.width,
+              height: size.height * 0.4,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 50.0),
+                child: LineChartWidget(),
+              ),
             ),
-          ),
-        ]),
+            SizedBox(
+              width: size.width,
+              height: size.height * 0.3,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: BarChart(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
