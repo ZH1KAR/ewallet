@@ -11,8 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
+  HomePage({Key? key}) : super(key: key);
+  static const routeName = '/home';
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -46,6 +46,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: DrawerWidget(),
       appBar: AppBar(
+          foregroundColor: Colors.white,
           elevation: 0,
           shadowColor: Colors.transparent,
           actions: [

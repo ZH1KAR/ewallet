@@ -5,10 +5,17 @@ import 'package:flutter/material.dart';
 
 class LoginWidget extends StatelessWidget {
   LoginWidget({Key? key}) : super(key: key);
+  // final FocusNode _priceFocusNode = FocusNode();
+  // final FocusNode _descriptionFocusNode = FocusNode();
+  // final FocusNode _imageUrlFocusNode = FocusNode();
+  // final TextEditingController _phoneController = TextEditingController();
+  // final TextEditingController _passwordController = TextEditingController();
+  // final GlobalKey<FormState> _form = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Form(
+      // key: _form,
       child: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -37,6 +44,7 @@ class LoginWidget extends StatelessWidget {
                       ),
                     ),
                     TextFormField(
+                      // controller: _phoneController,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         hintText: "Phone Number",
@@ -46,6 +54,12 @@ class LoginWidget extends StatelessWidget {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0)),
                       ),
+                      // validator: (value) {
+                      //   if (value == null || value!.trim().length == 0) {
+                      //     return "Please Enter Your Phone Number";
+                      //   }
+                      //   return null;
+                      // },
                     ),
                   ],
                 ),
@@ -63,6 +77,7 @@ class LoginWidget extends StatelessWidget {
                       ),
                     ),
                     TextFormField(
+                      // controller: _phoneController,
                       obscureText: true,
                       keyboardType: TextInputType.visiblePassword,
                       decoration: InputDecoration(
@@ -73,6 +88,11 @@ class LoginWidget extends StatelessWidget {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0)),
                       ),
+                      // validator: (value) {
+                      //   if (value == null) {
+                      //     return "Please Enter Password";
+                      //   }
+                      // },
                     ),
                   ],
                 ),
@@ -92,10 +112,13 @@ class LoginWidget extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage()));
+                  // var isValid = _form.currentState!.validate();
+                  // if (!isValid) {
+                  //   return;
+                  // }
+                  // _form.currentState!.save();
+
+                  Navigator.pushReplacementNamed(context, HomePage.routeName);
                 },
                 child: Text(
                   "LOGIN",

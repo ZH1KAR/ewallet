@@ -4,8 +4,8 @@ import 'package:ewallet/widgets/line_chart_widgets.dart';
 import 'package:flutter/material.dart';
 
 class ChartStatistics extends StatefulWidget {
-  const ChartStatistics({Key? key}) : super(key: key);
-
+  ChartStatistics({Key? key}) : super(key: key);
+  static const routeName = '/chart';
   @override
   State<ChartStatistics> createState() => _ChartStatisticsState();
 }
