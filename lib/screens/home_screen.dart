@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
             colors: [klightBlue, klightPurpule],
             tileMode: TileMode.clamp),
       ),
-      child: Column(
+      child: ListView(
         children: [
           CreditCard(),
           Row(

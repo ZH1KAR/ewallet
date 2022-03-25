@@ -67,7 +67,7 @@ class _LineChartWidgetState extends State<LineChartWidget> {
         minX: 0,
         maxX: 12,
         minY: 0,
-        maxY: 10,
+        maxY: 8,
         titlesData: LineData.getTitleData(),
         gridData: FlGridData(
           // show: true,
@@ -95,11 +95,8 @@ class _LineChartWidgetState extends State<LineChartWidget> {
           LineChartBarData(
             spots: [
               FlSpot(1, 8),
-              FlSpot(2, 1),
-              FlSpot(3, 2),
-              FlSpot(4, 4),
-              FlSpot(5, 9),
-              FlSpot(6, 12),
+              FlSpot(5, 4),
+              FlSpot(8, 12),
             ],
             isCurved: true,
             colors: gradient,
@@ -148,10 +145,10 @@ class LineData {
             switch (value.toInt()) {
               case 2:
                 return "Jan";
-              case 4:
+              case 5:
                 return "Feb";
 
-              case 6:
+              case 8:
                 return "March";
             }
             return "";

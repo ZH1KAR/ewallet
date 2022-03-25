@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ewallet/constants.dart';
 import 'package:ewallet/screens/chart_screen.dart';
 import 'package:ewallet/screens/home_screen.dart';
+import 'package:ewallet/screens/profile_screen.dart';
 import 'package:ewallet/widgets/credit_card.dart';
 import 'package:ewallet/widgets/home_prop_cards.dart';
 import 'package:ewallet/widgets/monthly_log.dart';
@@ -24,7 +25,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     _listPage
       ..add(HomeScreen())
-      ..add(ChartStatistics());
+      ..add(ChartStatistics())
+      ..add(ProfileScreen());
     _currentPage = HomeScreen();
     // getCurrentPage(currentIndex);
     super.initState();
@@ -78,6 +80,16 @@ class _HomePageState extends State<HomePage> {
             //       Icons.notifications_active,
             //       color: klightBlue,
             //     )),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.insert_chart_outlined,
+                  color: klightBlue,
+                ),
+                label: "Statistics",
+                activeIcon: Icon(
+                  Icons.insert_chart,
+                  color: klightBlue,
+                )),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.insert_chart_outlined,
