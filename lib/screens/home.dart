@@ -92,12 +92,12 @@ class _HomePageState extends State<HomePage> {
                 )),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.insert_chart_outlined,
+                  Icons.account_circle_outlined,
                   color: klightBlue,
                 ),
-                label: "Statistics",
+                label: "Profile",
                 activeIcon: Icon(
-                  Icons.insert_chart,
+                  Icons.account_circle,
                   color: klightBlue,
                 )),
             // BottomNavigationBarItem(
