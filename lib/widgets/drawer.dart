@@ -1,5 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ewallet/constants.dart';
+import 'package:ewallet/screens/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -49,8 +51,11 @@ class DrawerWidget extends StatelessWidget {
             function: () {},
           ),
           TextButtonDrawer(
-            text: "Profile",
-            function: () {},
+            text: "Logout",
+            function: () async {
+              await FirebaseAuth.instance.signOut();
+              Navigator.pushReplacementNamed(context, Login.routeName);
+            },
           ),
         ],
       ),
