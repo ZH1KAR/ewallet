@@ -1,17 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ewallet/constants.dart';
+import 'package:ewallet/model/auth_services.dart';
 import 'package:ewallet/provider/log_provider.dart';
 import 'package:ewallet/screens/chart_screen.dart';
 import 'package:ewallet/screens/home.dart';
 import 'package:ewallet/screens/login.dart';
 import 'package:ewallet/screens/profile_screen.dart';
+import 'package:ewallet/screens/verification.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -26,6 +29,13 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: LogItems(),
         ),
+        Provider(
+          create: (_) => AuthenticationServices(FirebaseAuth.instance),
+        ),
+        StreamProvider(
+            create: (_) =>
+                Provider.of<AuthenticationServices>(context).authChangeState,
+            initialData: AuthenticationServices),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -51,6 +61,7 @@ class MyApp extends StatelessWidget {
           Login.routeName: (context) => Login(),
           ProfileScreen.routeName: (context) => ProfileScreen(),
           ChartStatistics.routeName: (context) => ChartStatistics(),
+          Verfications.routeName: (context) => Verfications(),
         },
       ),
     );
