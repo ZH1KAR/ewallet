@@ -1,5 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ewallet/constants.dart';
+import 'package:ewallet/screens/about_us.dart';
+import 'package:ewallet/screens/contact_us_screen.dart';
 import 'package:ewallet/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -44,11 +46,15 @@ class DrawerWidget extends StatelessWidget {
           ),
           TextButtonDrawer(
             text: "About Us",
-            function: () {},
+            function: () {
+                Navigator.pushNamed(context, AboutUs.routeName);
+            },
           ),
           TextButtonDrawer(
             text: "Contact Us On",
-            function: () {},
+            function: () {
+              Navigator.pushNamed(context,Contactus.routeName);
+            },
           ),
           TextButtonDrawer(
             text: "Logout",

@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ewallet/constants.dart';
 import 'package:ewallet/model/auth_services.dart';
 import 'package:ewallet/provider/log_provider.dart';
+import 'package:ewallet/screens/about_us.dart';
 import 'package:ewallet/screens/chart_screen.dart';
+import 'package:ewallet/screens/contact_us_screen.dart';
 import 'package:ewallet/screens/home.dart';
 import 'package:ewallet/screens/login.dart';
 import 'package:ewallet/screens/profile_screen.dart';
@@ -62,6 +64,8 @@ class MyApp extends StatelessWidget {
           ProfileScreen.routeName: (context) => ProfileScreen(),
           ChartStatistics.routeName: (context) => ChartStatistics(),
           Verfications.routeName: (context) => Verfications(),
+          AboutUs.routeName:(context) => AboutUs(),
+          Contactus.routeName:(context) => Contactus(),
         },
       ),
     );
